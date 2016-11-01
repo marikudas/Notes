@@ -71,7 +71,6 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "Sign up";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // textBox1
             // 
@@ -89,7 +88,6 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(121, 20);
             this.textBox2.TabIndex = 6;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label2
             // 
@@ -102,7 +100,6 @@
             this.label2.Size = new System.Drawing.Size(92, 24);
             this.label2.TabIndex = 7;
             this.label2.Text = "Password";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // StartForm
             // 
