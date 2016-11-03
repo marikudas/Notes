@@ -8,20 +8,5 @@ namespace Presentation.Authorization
         {
             InitializeComponent();
         }
-
-        private void textBox2_TextChanged(object sender, System.EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, System.EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, System.EventArgs e)
-        {
-
-        }
     }
 }
