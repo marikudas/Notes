@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace Presentation
+namespace Presentation.Authorization
 {
     static class Program
     {
@@ -14,7 +14,7 @@ namespace Presentation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new StartForm());
+            Application.Run(new MainForm());
         }
     }
 }
