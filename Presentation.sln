@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Logic\Logic.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Database\Database.csproj", "{B20BB3DB-C2CA-46C5-8ADA-6C833EF31417}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notebook", "Notebook\Notebook.csproj", "{3A9FFB54-6EB3-4022-829C-8B958540F634}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B20BB3DB-C2CA-46C5-8ADA-6C833EF31417}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B20BB3DB-C2CA-46C5-8ADA-6C833EF31417}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B20BB3DB-C2CA-46C5-8ADA-6C833EF31417}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A9FFB54-6EB3-4022-829C-8B958540F634}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A9FFB54-6EB3-4022-829C-8B958540F634}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A9FFB54-6EB3-4022-829C-8B958540F634}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A9FFB54-6EB3-4022-829C-8B958540F634}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
