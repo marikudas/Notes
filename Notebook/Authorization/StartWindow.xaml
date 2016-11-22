@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:Notebook.Authorization"
         mc:Ignorable="d"
         Title="Welcome!" Name="AuthWindow" Height="300" Width="300">
-    <Grid ShowGridLines="True">
-        <!-- <Grid.Background>
-            <ImageBrush ImageSource="Backgroud.jpg"></ImageBrush>
-        </Grid.Background>-->
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="D:\TFS\Coursework (Notes)\Notes\Notes\Notebook\Backgroud.jpg"></ImageBrush>
+        </Grid.Background>
         <Grid.RowDefinitions> 
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
@@ -22,7 +22,7 @@
         <Label x:Name="loginlabel" Content="Login" HorizontalAlignment="Left" Margin="40,0,0,40" FontFamily="Times New Roman" FontSize="20" VerticalAlignment="Center"/>
         <Label x:Name="passlabel" Content="Password" HorizontalAlignment="Right" Margin="0 0 30 40" FontFamily="Times New Roman" FontSize ="20" VerticalAlignment="Center"/>
         <Button x:Name="SingInbutton" Click="SingInbutton_Click" Content="Sign In" HorizontalAlignment="Left" Margin="25,0,0,0" Grid.Row="1" FontFamily="Times New Roman" FontSize="20" VerticalAlignment="Center" Width="100"/>
-        <Button x:Name="SingOutbutton" Content="Sign Out" HorizontalAlignment="Right" Margin="0,0,20,0" Grid.Row="1" FontFamily="Times New Roman" FontSize="20" VerticalAlignment="Center" Width="100"/>
+        <Button x:Name="SingOutbutton" Content="Sign Out" HorizontalAlignment="Right" Margin="0,0,20,0" Grid.Row="1" FontFamily="Times New Roman" FontSize="20" VerticalAlignment="Center" Width="100" Click="SingOutbutton_Click"/>
         <Label x:Name="exceptionlabel" Content="" HorizontalAlignment="Center" Margin="0,0,0,10" Grid.Row="1" FontFamily="Times New Roman" FontSize="20" Foreground="Red" VerticalAlignment="Bottom"/>
 
 

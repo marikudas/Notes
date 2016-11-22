@@ -40,14 +40,17 @@ namespace Notebook.Authorization
                 MainWindow.Show();
                 this.Close();
             }
-            catch(InvalidOperationException ex)
-            {
-                exceptionlabel.Content = ex.Message;
-            }
             catch (Exception ex)
             {
                 exceptionlabel.Content = ex.Message;
             }
+        }
+
+        private void SingOutbutton_Click(object sender, RoutedEventArgs e)
+        {
+            RegistrationWindow RegistrationWindow = new RegistrationWindow();
+            RegistrationWindow.Show();
+            this.Close();
         }
     }
 }
