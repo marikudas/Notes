@@ -7,18 +7,18 @@
         mc:Ignorable="d"
         Title="Registration" Height="400" Width="400">
     <Grid>
-    <StackPanel>
+    <StackPanel Name="SPanel">
             <Label x:Name="firstnamelabel" Content="Enter your First Name :" Foreground="White" FontFamily="Times New Roman" FontSize="15" Margin="40 20 0 0" HorizontalAlignment="Left" Width="150"/>
-        <TextBox x:Name="firstnamebox" ToolTip="Text only" Margin="40 0 0 0"  HorizontalAlignment="Left" Width="250" FontFamily="Times New Roman" MaxLength="256" BorderThickness="2" LostFocus="firstnamebox_LostFocus"/>
+        <TextBox x:Name="firstnamebox" ToolTip="Text only" Margin="40 0 0 0"  HorizontalAlignment="Left" Width="250" FontFamily="Times New Roman" MaxLength="256" BorderThickness="2" LostFocus="ValidateBoxOnLostFocus"/>
             <Label x:Name="lastnamelabel"  Content="Enter your Last Name :" Foreground="White" FontFamily="Times New Roman" FontSize="15" Margin="40 0 0 0" HorizontalAlignment="Left" Width="150"/>
-        <TextBox x:Name="lastnamebox" ToolTip="Text only" Margin="40 0 0 0" HorizontalAlignment="Left" Width="250" FontFamily="Times New Roman"/>
+        <TextBox x:Name="lastnamebox" ToolTip="Text only" Margin="40 0 0 0" HorizontalAlignment="Left" Width="250" FontFamily="Times New Roman" BorderThickness="2" LostFocus="ValidateBoxOnLostFocus"/>
             <Label x:Name="loginlabel" Content="Enter your Login :" Foreground="White" FontFamily="Times New Roman" FontSize="15" Margin="40 0 0 0" HorizontalAlignment="Left" Width="120"/>
-            <TextBox x:Name="loginbox" ToolTip="Prohibited signs : , ; ' / # * ? - " Margin="40 0 0 0" HorizontalAlignment="Left" Width="250" FontFamily="Times New Roman"/>
+            <TextBox x:Name="loginbox" ToolTip="Prohibited signs : , ; ' / # * ? - " Margin="40 0 0 0" HorizontalAlignment="Left" Width="250" FontFamily="Times New Roman" LostFocus="LogAndPassOnLostFocus"/>
             <Label x:Name="passwordlabel" Foreground="White" Content="Enter your Pass :" FontFamily="Times New Roman" FontSize="15" Margin="40 0 0 0" HorizontalAlignment="Left" Width="120"/>
-            <TextBox x:Name="passbox" Margin="40 0 0 0" ToolTip="Prohibited signs : , ; ' / # * ? - " HorizontalAlignment="Left" Width="250" FontFamily="Times New Roman"/>
+            <TextBox x:Name="passbox" Margin="40 0 0 0" ToolTip="Prohibited signs : , ; ' / # * ? - " HorizontalAlignment="Left" Width="250" FontFamily="Times New Roman" LostFocus="LogAndPassOnLostFocus"/>
         <Label x:Name="emaillabel" Foreground="White" Content="Enter your Email :"  FontFamily="Times New Roman" FontSize="15" Margin="40 0 0 0" HorizontalAlignment="Left" Width="120"/>
-        <TextBox x:Name="emailbox" Margin="40 0 0 0" HorizontalAlignment="Left" Width="250" FontFamily="Times New Roman"/>
-        <Button x:Name="SingUpbutton" Content="Sign Up!" FontFamily="Times New Roman" FontSize="20" Margin="0 40 0 0" HorizontalAlignment="Center" Width="100"/>
+        <TextBox x:Name="emailbox" Margin="40 0 0 0" HorizontalAlignment="Left" Width="250" FontFamily="Times New Roman" LostFocus="emailbox_LostFocus"/>
+            <Button x:Name="SignUpbutton" Content="Sign Up!" IsEnabled="False" FontFamily="Times New Roman" FontSize="20" Margin="0 40 0 0" HorizontalAlignment="Center" Width="100" Click="SignUpbutton_Click"/>
         <StackPanel.Background>
             <ImageBrush ImageSource="D:\TFS\Coursework (Notes)\Notes\Notes\Notebook\Backgroud.jpg"></ImageBrush>
         </StackPanel.Background>

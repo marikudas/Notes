@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Presentation\Presentation.csproj", "{BF51C8C3-88B0-4322-87E5-EA80771ED841}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Logic\Logic.csproj", "{94502B08-4094-4258-A120-B5D816899440}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Database\Database.csproj", "{B20BB3DB-C2CA-46C5-8ADA-6C833EF31417}"
@@ -17,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BF51C8C3-88B0-4322-87E5-EA80771ED841}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BF51C8C3-88B0-4322-87E5-EA80771ED841}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BF51C8C3-88B0-4322-87E5-EA80771ED841}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BF51C8C3-88B0-4322-87E5-EA80771ED841}.Release|Any CPU.Build.0 = Release|Any CPU
 		{94502B08-4094-4258-A120-B5D816899440}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{94502B08-4094-4258-A120-B5D816899440}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94502B08-4094-4258-A120-B5D816899440}.Release|Any CPU.ActiveCfg = Release|Any CPU
