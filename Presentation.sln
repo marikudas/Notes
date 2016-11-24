@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Logic\Logic.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Database\Database.csproj", "{B20BB3DB-C2CA-46C5-8ADA-6C833EF31417}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notebook", "Notebook\Notebook.csproj", "{3A9FFB54-6EB3-4022-829C-8B958540F634}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Notebook\Presentation.csproj", "{3A9FFB54-6EB3-4022-829C-8B958540F634}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
