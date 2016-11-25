@@ -7,11 +7,9 @@
         mc:Ignorable="d"
         Title="Welcome!" Name="AuthWindow" Height="300" Width="300">
     <Grid>
-        <!--
         <Grid.Background>
-            <ImageBrush ImageSource="D:\TFS\Coursework (Notes)\Notes\Notes\Notebook\Backgroud.jpg"></ImageBrush>
+            <ImageBrush ImageSource="../Images/Backgroud.jpg"></ImageBrush>
         </Grid.Background>
-        -->
         <Grid.RowDefinitions> 
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
@@ -19,13 +17,13 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="loginBox" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Margin="10 0 0 0" Width="120"/>
-        <PasswordBox x:Name="passwordBox" Width="120" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Margin="0 0 10 0"/>
-        <Label x:Name="loginlabel" Content="Login" HorizontalAlignment="Left" Margin="40,0,0,40" FontFamily="Times New Roman" FontSize="20" VerticalAlignment="Center"/>
-        <Label x:Name="passlabel" Content="Password" HorizontalAlignment="Right" Margin="0 0 30 40" FontFamily="Times New Roman" FontSize ="20" VerticalAlignment="Center"/>
+        <TextBox x:Name="LoginBox" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Margin="10 0 0 0" Width="120"/>
+        <PasswordBox x:Name="PasswordBox" Width="120" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Margin="0 0 10 0"/>
+        <Label x:Name="Loginlabel" Content="Login" HorizontalAlignment="Left" Margin="40,0,0,40" FontFamily="Times New Roman" FontSize="20" VerticalAlignment="Center"/>
+        <Label x:Name="Passlabel" Content="Password" HorizontalAlignment="Right" Margin="0 0 30 40" FontFamily="Times New Roman" FontSize ="20" VerticalAlignment="Center"/>
         <Button x:Name="SingInbutton" Click="SingInbutton_Click" Content="Sign In" HorizontalAlignment="Left" Margin="25,0,0,0" Grid.Row="1" FontFamily="Times New Roman" FontSize="20" VerticalAlignment="Center" Width="100"/>
         <Button x:Name="SingOutbutton" Content="Sign Up" HorizontalAlignment="Right" Margin="0,0,20,0" Grid.Row="1" FontFamily="Times New Roman" FontSize="20" VerticalAlignment="Center" Width="100" Click="SingOutbutton_Click"/>
-        <Label x:Name="exceptionlabel" Content="" HorizontalAlignment="Center" Margin="0,0,0,10" Grid.Row="1" FontFamily="Times New Roman" FontSize="20" Foreground="Red" VerticalAlignment="Bottom"/>
+        <Label x:Name="Exceptionlabel" Content="" HorizontalAlignment="Center" Margin="0,0,0,10" Grid.Row="1" FontFamily="Times New Roman" FontSize="20" Foreground="Red" VerticalAlignment="Bottom"/>
 
 
     </Grid>

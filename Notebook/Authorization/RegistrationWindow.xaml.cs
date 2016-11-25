@@ -87,11 +87,11 @@ namespace Presentation.Authorization
             {
                 UserMap user = new UserMap
                 {
-                    FirstName = firstnamebox.Text,
-                    LastName = lastnamebox.Text,
-                    Login = loginbox.Text,
-                    Password = passbox.Text,
-                    Email = emailbox.Text
+                    FirstName = Firstnamebox.Text,
+                    LastName = Lastnamebox.Text,
+                    Login = Loginbox.Text,
+                    Password = Passbox.Text,
+                    Email = Emailbox.Text
                 };
                 _logic.Register(user);
                 

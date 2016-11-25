@@ -21,25 +21,25 @@ namespace Presentation.Authorization
         {
             try
             {
-                UserMap user = _logic.GetUsers().FirstOrDefault(u => u.Login == loginBox.Text);
+                UserMap user = _logic.GetUsers().FirstOrDefault(u => u.Login == LoginBox.Text);
                 if (user == null)
                     throw new InvalidOperationException("Invalid login!");
-                if (user.Password != passwordBox.Password)
+                if (user.Password != PasswordBox.Password)
                     throw new InvalidOperationException("Wrong password!");
-                MainWindow MainWindow = new MainWindow();
-                MainWindow.Show();
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
                 this.Close();
             }
             catch (Exception ex)
             {
-                exceptionlabel.Content = ex.Message;
+                Exceptionlabel.Content = ex.Message;
             }
         }
 
         private void SingOutbutton_Click(object sender, RoutedEventArgs e)
         {
-            RegistrationWindow RegistrationWindow = new RegistrationWindow();
-            RegistrationWindow.Show();
+            RegistrationWindow registrationWindow = new RegistrationWindow();
+            registrationWindow.Show();
             this.Close();
         }
     }

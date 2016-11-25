@@ -3,14 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:l="clr-namespace:Logic;assembly=Logic"
-        xmlns:local="clr-namespace:Notebook"
-        mc:Ignorable="d" DataContext="{Binding Mode=OneWay, RelativeSource={RelativeSource Self}}"
         Title="MainWindow" Height="350" Width="819.737">
     <TabControl>
         <DockPanel>
             <Panel.Background>
-                <ImageBrush ImageSource="Backgroud.jpg" />
+                <ImageBrush ImageSource="../Images/Backgroud.jpg" />
             </Panel.Background>
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="File" />
