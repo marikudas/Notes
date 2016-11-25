@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
 
-namespace Notebook
+namespace Presentation.MainWindows
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml

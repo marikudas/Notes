@@ -15,7 +15,7 @@ using System.Text.RegularExpressions;
 using Logic.Model;
 using Logic;
 
-namespace Notebook.Authorization
+namespace Presentation.Authorization
 {
     /// <summary>
     /// Логика взаимодействия для RegistrationWindow.xaml

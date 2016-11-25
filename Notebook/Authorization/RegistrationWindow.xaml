@@ -1,9 +1,9 @@
-﻿<Window x:Class="Notebook.Authorization.RegistrationWindow" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+﻿<Window x:Class="Presentation.Authorization.RegistrationWindow" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Notebook.Authorization"
+        xmlns:local="clr-namespace:Presentation.Authorization"
         mc:Ignorable="d"
         Title="Registration" Height="400" Width="400">
     <Grid>
