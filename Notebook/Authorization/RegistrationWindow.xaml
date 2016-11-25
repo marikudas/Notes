@@ -19,9 +19,10 @@
         <Label x:Name="emaillabel" Foreground="White" Content="Enter your Email :"  FontFamily="Times New Roman" FontSize="15" Margin="40 0 0 0" HorizontalAlignment="Left" Width="120"/>
         <TextBox x:Name="emailbox" Margin="40 0 0 0" HorizontalAlignment="Left" Width="250" FontFamily="Times New Roman" LostFocus="emailbox_LostFocus"/>
             <Button x:Name="SignUpbutton" Content="Sign Up!" IsEnabled="False" FontFamily="Times New Roman" FontSize="20" Margin="0 40 0 0" HorizontalAlignment="Center" Width="100" Click="SignUpbutton_Click"/>
-        <StackPanel.Background>
+       <!-- <StackPanel.Background>
             <ImageBrush ImageSource="D:\TFS\Coursework (Notes)\Notes\Notes\Notebook\Backgroud.jpg"></ImageBrush>
         </StackPanel.Background>
+        -->
     </StackPanel>
     </Grid>
 </Window>

@@ -7,9 +7,11 @@
         mc:Ignorable="d"
         Title="Welcome!" Name="AuthWindow" Height="300" Width="300">
     <Grid>
+        <!--
         <Grid.Background>
             <ImageBrush ImageSource="D:\TFS\Coursework (Notes)\Notes\Notes\Notebook\Backgroud.jpg"></ImageBrush>
         </Grid.Background>
+        -->
         <Grid.RowDefinitions> 
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
