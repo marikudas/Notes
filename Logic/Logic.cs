@@ -1,26 +1,26 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Database.Model;
+using Database;
+using Logic.Model;
+using Logic.Mapping;
+
 
 namespace Logic
 {
     public class Logic
     {
-        Database.Model.DataClassesDataContext db = new Database.Model.DataClassesDataContext();
+        private DataAccess _db = new DataAccess();
+        private TypeConvertor _convertor = new TypeConvertor();
 
-        public Logic()
+        public void Register(UserMap user)
         {
-            
+            _db.AddUser(_convertor.Convert(user));
         }
 
-        public User Autorize(string Login, string Pass) {
-            return null;
-        }
-
-        public User Register(string Login, string Pass, string FistName, string LastName, string EMail)
+        public ICollection<UserMap> GetUsers()
         {
-            return null;
+            return _convertor.Convert(_db.GetUsers());
         }
-
-
     }
 }

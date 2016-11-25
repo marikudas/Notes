@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Logic.Mapping
+namespace Logic.Model
 {
-    class UserMap
+    public class UserMap
     {
         public int Id { get; set; }
         public string FirstName { get; set; }

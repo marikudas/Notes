@@ -1,5 +1,4 @@
-﻿using Database.Model;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows;
 
 namespace Notebook
@@ -9,8 +8,7 @@ namespace Notebook
     /// </summary>
     public partial class MainWindow : Window
     {
-        public DataClassesDataContext Database { get; set; } = new DataClassesDataContext();
-
+        
         public static Logic.Logic logic = new Logic.Logic();
 
         public MainWindow()
@@ -20,6 +18,6 @@ namespace Notebook
             
         }
 
-        public List<Logic.User> Users { get; set; } = logic.Users;
+        
     }
 }

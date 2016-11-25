@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Logic.Mapping
+namespace Logic.Model
 {
-    class NoteMap
+    public class NoteMap
     {
         public int Id { get; set; }
         public string Title { get; set; }

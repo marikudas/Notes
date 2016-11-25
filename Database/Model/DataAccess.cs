@@ -4,13 +4,14 @@ using System.Linq;
 
 namespace Database
 {
-    class DataAccess
+    public class DataAccess
     {
         public void AddUser(User user)
         {
             using (Entities db = new Entities())
             {
                 db.Users.Add(user);
+                db.SaveChanges();
             }
         }
 
@@ -19,6 +20,7 @@ namespace Database
             using (Entities db = new Entities())
             {
                 db.Notebooks.Add(notebook);
+                db.SaveChanges();
             }
         }
 
@@ -27,6 +29,7 @@ namespace Database
             using (Entities db = new Entities())
             {
                 db.Notes.Add(note);
+                db.SaveChanges();
             }
         }
 
@@ -35,6 +38,7 @@ namespace Database
             using (Entities db = new Entities())
             {
                 db.Users.Remove(user);
+                db.SaveChanges();
             }
         }
 
@@ -43,6 +47,7 @@ namespace Database
             using (Entities db = new Entities())
             {
                 db.Notebooks.Remove(notebook);
+                db.SaveChanges();
             }
         }
 
@@ -51,6 +56,7 @@ namespace Database
             using (Entities db = new Entities())
             {
                 db.Notes.Remove(note);
+                db.SaveChanges();
             }
         }
 
@@ -61,14 +67,31 @@ namespace Database
                 User user = db.Users.FirstOrDefault(u => u.Id == userId);
                 if (user != null)
                     db.Users.Remove(user);
+                db.SaveChanges();
             }
         }
 
-        public List<User> GetUsers()
+        public ICollection<User> GetUsers()
         {
             using (Entities db = new Entities())
             {
                 return db.Users.ToList();
+            }
+        }
+
+        public ICollection<Notebook> GetNotebooks()
+        {
+            using (Entities db = new Entities())
+            {
+                return db.Notebooks.ToList();
+            }
+        }
+
+        public ICollection<Note> GetNotes()
+        {
+            using (Entities db = new Entities())
+            {
+                return db.Notes.ToList();
             }
         }
     }

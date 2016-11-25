@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
-using Database.Model;
+using Logic.Model;
+using Logic;
 
 namespace Notebook.Authorization
 {
@@ -84,7 +85,7 @@ namespace Notebook.Authorization
         {
             try
             {
-                Users user = new Users
+                UserMap user = new UserMap
                 {
                     FirstName = firstnamebox.Text,
                     LastName = lastnamebox.Text,
@@ -92,7 +93,7 @@ namespace Notebook.Authorization
                     Password = passbox.Text,
                     Email = emailbox.Text
                 };
-
+                _logic.Register(user);
                 
                 StartWindow startWindow = new StartWindow();
                 startWindow.Show();

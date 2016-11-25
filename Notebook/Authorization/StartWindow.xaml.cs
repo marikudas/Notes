@@ -11,8 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Database.Model;
-
+using Logic.Model;
+using Logic;
 namespace Notebook.Authorization
 {
     /// <summary>
@@ -20,8 +20,7 @@ namespace Notebook.Authorization
     /// </summary>
     public partial class StartWindow : Window
     {
-        DataClassesDataContext db = new DataClassesDataContext();
-
+        private Logic.Logic _logic = new Logic.Logic();
         public StartWindow()
         {
             InitializeComponent();
@@ -31,7 +30,7 @@ namespace Notebook.Authorization
         {
             try
             {
-                Users user = db.Users.FirstOrDefault<Users>(u => u.Login == loginBox.Text);
+                UserMap user = _logic.GetUsers().FirstOrDefault(u => u.Login == loginBox.Text);
                 if (user == null)
                     throw new InvalidOperationException("Invalid login!");
                 if (user.Password != passwordBox.Password)

@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
 using Database.Model;
 using System.Collections.Generic;
+using Logic.Model;
 
 
 namespace Logic.Mapping
 {
-    class TypeConvertor 
+    public class TypeConvertor 
     {
         public UserMap Convert(User source)
         {
@@ -97,35 +98,7 @@ namespace Logic.Mapping
             return Mapper.Map<ICollection<NoteMap>>(source);
         }
 
-        public ICollection<User> Convert(ICollection<UserMap> source)
-        {
-            Mapper.Initialize(cfg => {
-                cfg.CreateMap<User, UserMap>();
-                cfg.CreateMap<Notebook, NotebookMap>();
-                cfg.CreateMap<Note, NoteMap>();
-            });
-            return Mapper.Map<ICollection<User>>(source);
-        }
 
-        public ICollection<Notebook> Convert(ICollection<NotebookMap> source)
-        {
-            Mapper.Initialize(cfg => {
-                cfg.CreateMap<User, UserMap>();
-                cfg.CreateMap<Notebook, NotebookMap>();
-                cfg.CreateMap<Note, NoteMap>();
-            });
-            return Mapper.Map<ICollection<Notebook>>(source);
-        }
-
-        public ICollection<Note> Convert(ICollection<NoteMap> source)
-        {
-            Mapper.Initialize(cfg => {
-                cfg.CreateMap<User, UserMap>();
-                cfg.CreateMap<Notebook, NotebookMap>();
-                cfg.CreateMap<Note, NoteMap>();
-            });
-            return Mapper.Map<ICollection<Note>>(source);
-        }
     }
 
 }

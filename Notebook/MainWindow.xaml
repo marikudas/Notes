@@ -3,77 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:db="clr-namespace:Database.Model;assembly=Database"
         xmlns:l="clr-namespace:Logic;assembly=Logic"
         xmlns:local="clr-namespace:Notebook"
         mc:Ignorable="d" DataContext="{Binding Mode=OneWay, RelativeSource={RelativeSource Self}}"
         Title="MainWindow" Height="350" Width="819.737">
-    <FrameworkElement.Resources>
-        <ControlTemplate x:Key="root" TargetType="{x:Type local:MainWindow}" >
-            <ListBox ItemsSource="{Binding Database.Users}" />
-        </ControlTemplate>
-        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-        <local:DeleteItemFromListBoxCommand x:Key="DeleteCmd" />
-        <local:AddNewCommand x:Key="AddNewCmd" />
-    </FrameworkElement.Resources>
     <TabControl>
         <TabItem Header="1">
-            <Grid ShowGridLines="True">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <ListBox Width="200" DockPanel.Dock="Left" ItemsSource="{Binding Users}" IsSynchronizedWithCurrentItem="True">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate DataType="{x:Type l:User}">
-                            <TextBlock Text="{Binding FirstName}"/>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-                <StackPanel Grid.Row="1" Orientation="Vertical" >
-                    <Label Content="{Binding Users/FirstName}"/>
-                    <TextBox Text="{Binding Users/LastName}"/>
-                </StackPanel>
-                <ListBox Grid.Column="1" ItemsSource="{Binding Users/Notebooks}" IsSynchronizedWithCurrentItem="True">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate DataType="{x:Type l:Notebook}">
-                            <TextBlock Text="{Binding Name}"/>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-                <DockPanel DockPanel.Dock="Right" Grid.Column="2" >
-                    <Button DockPanel.Dock="Top" Command="{StaticResource AddNewCmd}" CommandParameter="{Binding ElementName=NotesList, Path=Items}">Add Note</Button>
-                    <ListBox Name="NotesList" ItemsSource="{Binding Users/Notebooks/Book.Notes}" IsSynchronizedWithCurrentItem="True"
-                             HorizontalContentAlignment="Stretch">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate DataType="{x:Type db:Notes}">
-                                <Grid>
-                                    <TextBlock Text="{Binding Text}" />
-                                    <DockPanel Visibility="{Binding IsSelected, Converter={StaticResource BooleanToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}}">
-                                        <Button Width="20" DockPanel.Dock="Right" Command="{StaticResource DeleteCmd}" Content="X" FontSize="9"
-                                                CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}}"/>
-                                        <TextBox Text="{Binding Text}" Margin="-3,-1,0,0"/>
-                                    </DockPanel>
-                                </Grid>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </DockPanel>
-                <DataGrid Grid.Column="2" Grid.Row="1" AutoGenerateColumns="False"
-                          ItemsSource="{Binding Users/Notebooks/Book.Notes}" CanUserAddRows="True" >
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Title" Binding="{Binding Title}" />
-                        <DataGridTextColumn Header="Text" Binding="{Binding Text}" />
-                    </DataGrid.Columns>
-                </DataGrid>
-                <Calendar Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top"/>
-            </Grid>
-            
         </TabItem>
         <TabItem Header="2">
             <DockPanel>
