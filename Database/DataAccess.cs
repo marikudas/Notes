@@ -4,72 +4,89 @@ using System.Linq;
 
 namespace Database
 {
-    class DataAccess
+    public class DataAccess
     {
+        private readonly Entities _db = new Entities();
+
+        ~DataAccess()
+        {
+            _db.Dispose();
+        }
+
         public void AddUser(User user)
         {
-            using (ModelContainer db = new ModelContainer())
-            {
-                db.Users.Add(user);
-            }
+            _db.Users.Add(user);
+            _db.SaveChanges();
         }
 
         public void AddNotebook(Notebook notebook)
         {
-            using (ModelContainer db = new ModelContainer())
-            {
-                db.Notebooks.Add(notebook);
-            }
+            _db.Notebooks.Add(notebook);
+            _db.SaveChanges();
+
         }
 
         public void AddNote(Note note)
         {
-            using (ModelContainer db = new ModelContainer())
-            {
-                db.Notes.Add(note);
-            }
+
+            _db.Notes.Add(note);
+            _db.SaveChanges();
+
         }
 
         public void RemoveUser(User user)
         {
-            using (ModelContainer db = new ModelContainer())
-            {
-                db.Users.Remove(user);
-            }
+
+            _db.Users.Remove(user);
+            _db.SaveChanges();
+
         }
 
         public void RemoveNotebook(Notebook notebook)
         {
-            using (ModelContainer db = new ModelContainer())
-            {
-                db.Notebooks.Remove(notebook);
-            }
+
+            _db.Notebooks.Remove(notebook);
+            _db.SaveChanges();
+
         }
 
         public void RemoveNote(Note note)
         {
-            using (ModelContainer db = new ModelContainer())
-            {
-                db.Notes.Remove(note);
-            }
+
+            _db.Notes.Remove(note);
+            _db.SaveChanges();
+
         }
 
         public void RemoveUser(int userId)
         {
-            using (ModelContainer db = new ModelContainer())
-            {
-                User user = db.Users.FirstOrDefault(u => u.Id == userId);
-                if (user != null)
-                    db.Users.Remove(user);
-            }
+
+            User user = _db.Users.FirstOrDefault(u => u.Id == userId);
+            if (user != null)
+                _db.Users.Remove(user);
+            _db.SaveChanges();
+
         }
 
-        public List<User> GetUsers()
+        public ICollection<User> GetUsers()
         {
-            using (ModelContainer db = new ModelContainer())
-            {
-                return db.Users.ToList();
-            }
+
+            return _db.Users.ToList();
+
+        }
+
+        public ICollection<Notebook> GetNotebooks()
+        {
+
+            return _db.Notebooks.ToList();
+
+        }
+
+        public ICollection<Note> GetNotes()
+        {
+
+            return _db.Notes.ToList();
+
         }
     }
 }
