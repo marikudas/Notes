@@ -4,50 +4,30 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         Title="MainWindow" Height="350" Width="819.737">
-    <TabControl>
-        <DockPanel>
-            <Panel.Background>
-                <ImageBrush ImageSource="../Images/Backgroud.jpg" />
-            </Panel.Background>
-            <Menu DockPanel.Dock="Top">
-                <MenuItem Header="File" />
-                <MenuItem Header="Edit" />
-                <MenuItem Header="View" />
-                <MenuItem Header="Note" />
-                <MenuItem Header="Format" />
-            </Menu>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="200"/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <TreeView DockPanel.Dock="Left" Background="Transparent">
-                    <TreeViewItem Header="Books" FontWeight="Bold">
-                        <TreeViewItem Header="Book1" FontWeight="Regular"/>
-                        <TreeViewItem Header="Book2" FontWeight="Regular"/>
-                    </TreeViewItem>
-                </TreeView>
-                <DockPanel Grid.Column="1" DockPanel.Dock="Left">
-                    <DockPanel DockPanel.Dock="Top" >
-                        <Calendar DockPanel.Dock="Left"/>
-                        <StackPanel Orientation="Vertical">
-                            <DockPanel>
-                                <Label FontWeight="Bold" FontStyle="Italic" FontSize="15" DockPanel.Dock="Left" Content="Search"/>
-                                <TextBox/>
-                            </DockPanel>
-                            <DockPanel>
-                                <Label DockPanel.Dock="Left" Content="Display ..."/>
-                                <ComboBox/>
-                            </DockPanel>
-                        </StackPanel>
-                    </DockPanel>
-                    <ListBox Background="Transparent" Foreground="White">
-                        
-                    </ListBox>
-                </DockPanel>
-                <StackPanel Grid.Column="2"/>
-            </Grid>
-        </DockPanel>
-    </TabControl>
+    <DockPanel>
+        <Panel.Background>
+            <ImageBrush ImageSource="../Images/Backgroud.jpg" />
+        </Panel.Background>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File" />
+            <MenuItem Header="Edit" />
+            <MenuItem Header="View" />
+            <MenuItem Header="Note" />
+            <MenuItem Header="Format" />
+        </Menu>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TreeView DockPanel.Dock="Left" Background="Transparent">
+                <TreeViewItem Header="Books" FontWeight="Bold">
+                    <TreeViewItem Header="Book1" FontWeight="Regular"/>
+                    <TreeViewItem Header="Book2" FontWeight="Regular"/>
+                </TreeViewItem>
+            </TreeView>
+            <StackPanel Grid.Column="2"/>
+        </Grid>
+    </DockPanel>
 </Window>
