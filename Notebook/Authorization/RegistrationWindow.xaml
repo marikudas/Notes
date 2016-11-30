@@ -13,11 +13,11 @@
             <Label x:Name="Lastnamelabel"  Content="Enter your Last Name :" Foreground="White" FontFamily="Times New Roman" FontSize="15" Margin="0 0 0 0" HorizontalAlignment="Center" Width="150"/>
         <TextBox x:Name="Lastnamebox" ToolTip="Text only" HorizontalAlignment="Center" Width="250" FontFamily="Times New Roman" BorderThickness="2" LostFocus="ValidateBoxOnLostFocus"/>
             <Label x:Name="Loginlabel" Content="Enter your Login :" Foreground="White" FontFamily="Times New Roman" FontSize="15" Margin="0 0 0 0" HorizontalAlignment="Center" Width="120"/>
-            <TextBox x:Name="Loginbox" ToolTip="Prohibited signs : , ; ' / # * ? - " Margin="0 0 0 0" HorizontalAlignment="Center" Width="250" FontFamily="Times New Roman" LostFocus="LogAndPassOnLostFocus"/>
+            <TextBox x:Name="Loginbox" ToolTip="Prohibited signs : , ; ' / # * ? - " Margin="0 0 0 0" HorizontalAlignment="Center" Width="250" BorderThickness="2" FontFamily="Times New Roman" LostFocus="LogAndPassOnLostFocus"/>
             <Label x:Name="Passwordlabel" Foreground="White" Content="Enter your Pass :" FontFamily="Times New Roman" FontSize="15" Margin="0 0 0 0" HorizontalAlignment="Center" Width="120"/>
-            <TextBox x:Name="Passbox" Margin="0 0 0 0" ToolTip="Prohibited signs : , ; ' / # * ? - " HorizontalAlignment="Center" Width="250" FontFamily="Times New Roman" LostFocus="LogAndPassOnLostFocus"/>
+            <TextBox x:Name="Passbox" Margin="0 0 0 0" ToolTip="Prohibited signs : , ; ' / # * ? - " HorizontalAlignment="Center" Width="250" BorderThickness="2" FontFamily="Times New Roman" LostFocus="LogAndPassOnLostFocus"/>
         <Label x:Name="Emaillabel" Foreground="White" Content="Enter your Email :"  FontFamily="Times New Roman" FontSize="15" Margin="0 0 0 0" HorizontalAlignment="Center" Width="120"/>
-        <TextBox x:Name="Emailbox" Margin="0 0 0 0" HorizontalAlignment="Center" Width="250" FontFamily="Times New Roman" LostFocus="emailbox_LostFocus"/>
+            <TextBox x:Name="Emailbox" Margin="0 0 0 0" HorizontalAlignment="Center" Width="250" FontFamily="Times New Roman" BorderThickness="2" LostFocus="emailbox_LostFocus"/>
             <Button x:Name="SignUpbutton" Content="Sign Up!" IsEnabled="False" FontFamily="Times New Roman" FontSize="20" Margin="0 40 0 0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="100" Click="SignUpbutton_Click"/>
             <StackPanel.Background>
                 <ImageBrush ImageSource="../Images/Backgroud.jpg" />

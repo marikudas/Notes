@@ -3,31 +3,73 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        Title="MainWindow" Height="350" Width="819.737">
+        Title="MainWindow" Height="500" Width="700">
+    <Window.Resources>
+    <Style TargetType="Label">
+            <Setter Property="FontFamily" Value ="Times New Roman" ></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+    </Style>
+    <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Times New Roman"></Setter>
+            <Setter Property="FontSize" Value="18"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="Background" Value="Transparent"></Setter>
+            <Setter Property="BorderBrush" Value="Purple"></Setter>
+        </Style>   
+    </Window.Resources>
     <DockPanel>
         <Panel.Background>
             <ImageBrush ImageSource="../Images/Backgroud.jpg" />
         </Panel.Background>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="File" />
-            <MenuItem Header="Edit" />
-            <MenuItem Header="View" />
-            <MenuItem Header="Note" />
-            <MenuItem Header="Format" />
+            <MenuItem Header="File">
+                <MenuItem Header="Add new book"></MenuItem>
+                <MenuItem Header="Add new note"></MenuItem>
+                <Separator/>
+                <MenuItem Header="Exit for user"></MenuItem>
+                <MenuItem Header="Exit"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem Header=""></MenuItem>
+                <MenuItem Header=""></MenuItem>
+            </MenuItem>
+            <MenuItem Header="View"/>
+            <MenuItem Header="Note"/>
+            <MenuItem Header="Format"/>
         </Menu>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition MinWidth="150" MaxWidth="200" Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition  Width="*"/>
             </Grid.ColumnDefinitions>
-            <TreeView DockPanel.Dock="Left" Background="Transparent">
-                <TreeViewItem Header="Books" FontWeight="Bold">
-                    <TreeViewItem Header="Book1" FontWeight="Regular"/>
-                    <TreeViewItem Header="Book2" FontWeight="Regular"/>
-                </TreeViewItem>
-            </TreeView>
-            <StackPanel Grid.Column="2"/>
+            <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3"
+        HorizontalAlignment="Stretch" Background="Black" />
+            <GridSplitter Grid.Column="3"  ShowsPreview="False" Width="3"
+        HorizontalAlignment="Stretch" Background="Black" />
+            <ListBox Background="Transparent" Foreground="White" Grid.Column="0">
+
+            </ListBox>
+            <Button VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="150" Height="30" Margin="10" Content="Add new book"></Button>
+            <Label  Grid.Column="2" VerticalAlignment="Top"  Content="Search" HorizontalContentAlignment="Center"></Label>
+            <TextBox  Grid.Column="2" Padding="3" VerticalAlignment="Top" Margin="0 30 0 0" FontFamily="Times New Roman" MinWidth="50" MaxWidth="200" Background="Transparent" Foreground="White" BorderThickness="2" BorderBrush="Purple"></TextBox>
+            <ListBox   Grid.Column="2" VerticalAlignment="Bottom" Margin="2" Height="300" Background="Transparent" Foreground="White" BorderBrush="Purple"></ListBox>
+            <Label Grid.Column="2" VerticalAlignment="Top" Content="Displaing notes from" Margin="0 70 0 0"></Label>
+            <ComboBox x:Name="comboBox" Grid.Column="2" Margin="0 100 10 0" HorizontalAlignment="Right" BorderBrush="Purple" Background ="Transparent"  VerticalAlignment="Top" Width="120">
+            </ComboBox>
+            <RichTextBox x:Name="richTextBox" Grid.Column="4" Background="Transparent" BorderBrush="Purple" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="1" Height="300" >
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Text=""/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            
+            <Label Grid.Column="4" Content="Name Your Note" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 20"></Label>
+            <TextBox  Grid.Column="4" Padding="3" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0 60 0 0" FontFamily="Times New Roman" MinWidth="50" Background="Transparent" Foreground="White" BorderThickness="2" BorderBrush="Purple"></TextBox>
         </Grid>
     </DockPanel>
 </Window>
