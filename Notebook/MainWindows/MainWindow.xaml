@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         Title="MainWindow" Height="500" Width="700">
     <Window.Resources>
-    <Style TargetType="Label">
+        <Style TargetType="Label">
             <Setter Property="FontFamily" Value ="Times New Roman" ></Setter>
             <Setter Property="Foreground" Value="White"></Setter>
             <Setter Property="FontSize" Value="20"></Setter>
@@ -53,13 +53,14 @@
             <ListBox Background="Transparent" Foreground="White" Grid.Column="0">
 
             </ListBox>
-            <Button VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="150" Height="30" Margin="10" Content="Add new book"></Button>
+            <Button Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="150" Height="30" Margin="10" Content="Add new book"></Button>
             <Label  Grid.Column="2" VerticalAlignment="Top"  Content="Search" HorizontalContentAlignment="Center"></Label>
             <TextBox  Grid.Column="2" Padding="3" VerticalAlignment="Top" Margin="0 30 0 0" FontFamily="Times New Roman" MinWidth="50" MaxWidth="200" Background="Transparent" Foreground="White" BorderThickness="2" BorderBrush="Purple"></TextBox>
             <ListBox   Grid.Column="2" VerticalAlignment="Bottom" Margin="2" Height="300" Background="Transparent" Foreground="White" BorderBrush="Purple"></ListBox>
-            <Label Grid.Column="2" VerticalAlignment="Top" Content="Displaing notes from" Margin="0 70 0 0"></Label>
-            <ComboBox x:Name="comboBox" Grid.Column="2" Margin="0 100 10 0" HorizontalAlignment="Right" BorderBrush="Purple" Background ="Transparent"  VerticalAlignment="Top" Width="120">
+            <Label Grid.Column="2" VerticalAlignment="Top" Content="Displaing notes from" Margin="0 50 0 0"></Label>
+            <ComboBox x:Name="comboBox" Grid.Column="2" Margin="0 80 10 0" HorizontalAlignment="Right" BorderBrush="Purple" Background ="Transparent"  VerticalAlignment="Top" Width="120">
             </ComboBox>
+            <Button Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150" Height="25" Margin="10 110 0 0 " Content="Add new note"></Button>
             <RichTextBox x:Name="richTextBox" Grid.Column="4" Background="Transparent" BorderBrush="Purple" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="1" Height="300" >
                 <FlowDocument>
                     <Paragraph>
