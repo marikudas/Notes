@@ -44,34 +44,36 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition  Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3"
         HorizontalAlignment="Stretch" Background="Black" />
             <GridSplitter Grid.Column="3"  ShowsPreview="False" Width="3"
         HorizontalAlignment="Stretch" Background="Black" />
+            <Label Grid.Column="0" Content="Your Books" HorizontalAlignment="Center" VerticalAlignment="Top"></Label>
             <ListBox Background="Transparent" Foreground="White" Grid.Column="0">
-
+        
             </ListBox>
-            <Button Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="150" Height="30" Margin="10" Content="Add new book"></Button>
+            <Button Name="NewBookButton" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="150" Height="30" Margin="10" Content="Add new book" Click="NewBookButton_Click"></Button>
             <Label  Grid.Column="2" VerticalAlignment="Top"  Content="Search" HorizontalContentAlignment="Center"></Label>
             <TextBox  Grid.Column="2" Padding="3" VerticalAlignment="Top" Margin="0 30 0 0" FontFamily="Times New Roman" MinWidth="50" MaxWidth="200" Background="Transparent" Foreground="White" BorderThickness="2" BorderBrush="Purple"></TextBox>
             <ListBox   Grid.Column="2" VerticalAlignment="Bottom" Margin="2" Height="300" Background="Transparent" Foreground="White" BorderBrush="Purple"></ListBox>
-            <Label Grid.Column="2" VerticalAlignment="Top" Content="Displaing notes from" Margin="0 50 0 0"></Label>
+            <Label Grid.Column="2" VerticalAlignment="Top" Content="Displaing notes from" MinWidth="100" Margin="0 50 0 0"></Label>
             <ComboBox x:Name="comboBox" Grid.Column="2" Margin="0 80 10 0" HorizontalAlignment="Right" BorderBrush="Purple" Background ="Transparent"  VerticalAlignment="Top" Width="120">
             </ComboBox>
             <Button Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150" Height="25" Margin="10 110 0 0 " Content="Add new note"></Button>
-            <RichTextBox x:Name="richTextBox" Grid.Column="4" Background="Transparent" BorderBrush="Purple" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="1" Height="300" >
+            <RichTextBox x:Name="richTextBox" Grid.Column="4" Background="Transparent" BorderBrush="Purple" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="1" Height="300" MaxHeight="500">
                 <FlowDocument>
                     <Paragraph>
                         <Run Text=""/>
                     </Paragraph>
                 </FlowDocument>
             </RichTextBox>
-
-            <Label Grid.Column="4" Content="Name Your Note" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 20"></Label>
-            <TextBox  Grid.Column="4" Padding="3" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0 60 0 0" FontFamily="Times New Roman" MinWidth="50" Background="Transparent" Foreground="White" BorderThickness="2" BorderBrush="Purple"></TextBox>
-            <ToolBar Grid.Column="4" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 85 0 0" Width="243" ></ToolBar>
+            <Label Grid.Column="4" Content="Name Your Note" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10,2,0,0"></Label>
+            <Label Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,50,0,0" >Date created :</Label>
+            <Label Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,50,40,0" Name="DateCreated">Date</Label>
+            <TextBox  Grid.Column="4" Padding="3" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0 30 0 0" FontFamily="Times New Roman" MinWidth="50" Background="Transparent" Foreground="White" BorderThickness="2" BorderBrush="Purple"></TextBox>
+            <ToolBar Grid.Column="4" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 80 0 0" Width="243" ></ToolBar>
         </Grid>
     </DockPanel>
 </Window>

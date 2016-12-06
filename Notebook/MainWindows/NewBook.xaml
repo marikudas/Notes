@@ -1,0 +1,28 @@
+﻿<Window x:Class="Presentation.MainWindows.NewBook"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Presentation.MainWindows"
+        mc:Ignorable="d"
+        Title="NewBook" Height="100" Width="300"
+        Background="SkyBlue">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Times New Roman"></Setter>
+            <Setter Property="FontSize" Value="18"></Setter>
+            <Setter Property="Foreground" Value="Black"></Setter>
+            <Setter Property="BorderBrush" Value="Purple"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Name="Grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="Purple" FontFamily="Times New Roman" FontSize="14">Name your book : </Label>
+        <TextBox Name="NameBox" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" BorderBrush="Purple" BorderThickness="2"></TextBox>
+        <Button Name="ok" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="80 2 0 2" Click="ok_Click" IsEnabled="False" >Ok</Button>
+        <Button Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 2 90 2">Cancel</Button>
+    </Grid>
+</Window>

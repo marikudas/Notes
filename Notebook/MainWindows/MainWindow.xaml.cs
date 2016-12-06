@@ -18,6 +18,10 @@ namespace Presentation.MainWindows
             
         }
 
-        
+        private void NewBookButton_Click(object sender, RoutedEventArgs e)
+        {
+            NewBook newbook = new NewBook();
+            newbook.Show();
+        }
     }
 }
