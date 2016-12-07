@@ -27,6 +27,6 @@ namespace Database.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Note> Notes { get; set; }
-        public virtual User Users { get; set; }
+        public virtual User User { get; set; }
     }
 }

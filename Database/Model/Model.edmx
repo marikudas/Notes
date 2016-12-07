@@ -92,7 +92,7 @@
           <Property Name="BackgroundImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Notes" Relationship="Self.FK_NotebookNote" FromRole="Notebooks" ToRole="Notes" />
-          <NavigationProperty Name="Users" Relationship="Self.FK_UserNotebook" FromRole="Notebooks" ToRole="Users" />
+          <NavigationProperty Name="User" Relationship="Self.FK_UserNotebook" FromRole="Notebooks" ToRole="Users" />
         </EntityType>
         <EntityType Name="Note">
           <Key>

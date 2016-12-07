@@ -1,5 +1,7 @@
 ﻿using Database.Model;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 
 namespace Database
@@ -36,8 +38,9 @@ namespace Database
 
         public void RemoveUser(User user)
         {
-
-            _db.Users.Remove(user);
+            _db.Users.Remove(_db.Users
+                .Include(u => u.Notebooks.Select(n => n.Notes))
+                .FirstOrDefault(u => u.Id == user.Id));
             _db.SaveChanges();
 
         }
@@ -45,15 +48,20 @@ namespace Database
         public void RemoveNotebook(Notebook notebook)
         {
 
-            _db.Notebooks.Remove(notebook);
+            _db.Notebooks.Remove(_db.Notebooks
+                .Include(n => n.Notes)
+                .Include(n => n.User)
+                .FirstOrDefault(n => n.Id == notebook.Id));
             _db.SaveChanges();
 
         }
 
         public void RemoveNote(Note note)
         {
-
-            _db.Notes.Remove(note);
+            _db.Notes.Remove(_db.Notes
+                .Include(n => n.Notebooks)
+                .Include(n => n.Notebooks.User)
+                .FirstOrDefault(n => n.Id == note.Id));
             _db.SaveChanges();
 
         }
@@ -66,6 +74,24 @@ namespace Database
                 _db.Users.Remove(user);
             _db.SaveChanges();
 
+        }
+
+        public void Update(User user)
+        {
+            _db.Users.AddOrUpdate(user);
+            _db.SaveChanges();
+        }
+
+        public void Update(Note note)
+        {
+            _db.Notes.AddOrUpdate(note);
+            _db.SaveChanges();
+        }
+
+        public void Update(Notebook notebook)
+        {
+            _db.Notebooks.AddOrUpdate(notebook);
+            _db.SaveChanges();
         }
 
         public ICollection<User> GetUsers()
