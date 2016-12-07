@@ -24,7 +24,7 @@ namespace Presentation.Authorization
                     throw new InvalidOperationException("Invalid login!");
                 if (user.Password != PasswordBox.Password)
                     throw new InvalidOperationException("Wrong password!");
-                MainWindow mainWindow = new MainWindow();
+                MainWindow mainWindow = new MainWindow(user);
                 mainWindow.Show();
                 Close();
             }

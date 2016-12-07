@@ -11,9 +11,9 @@ namespace Logic.Mapping
         public UserMap Convert(User source)
         {
             Mapper.Initialize(cfg => {
-                cfg.CreateMap<User, UserMap>();
-                cfg.CreateMap<Notebook, NotebookMap>();
-                cfg.CreateMap<Note, NoteMap>();
+                cfg.CreateMap<User, UserMap>().MaxDepth(1);
+                cfg.CreateMap<Notebook, NotebookMap>().MaxDepth(1);
+                cfg.CreateMap<Note, NoteMap>().MaxDepth(1);
             });
             return Mapper.Map<UserMap>(source);
         }
@@ -21,9 +21,9 @@ namespace Logic.Mapping
         public NotebookMap Convert(Notebook source)
         {
             Mapper.Initialize(cfg => {
-                cfg.CreateMap<User, UserMap>();
-                cfg.CreateMap<Notebook, NotebookMap>();
-                cfg.CreateMap<Note, NoteMap>();
+                cfg.CreateMap<User, UserMap>().MaxDepth(1);
+                cfg.CreateMap<Notebook, NotebookMap>().MaxDepth(1);
+                cfg.CreateMap<Note, NoteMap>().MaxDepth(1);
             });
             return Mapper.Map<NotebookMap>(source);
         }
@@ -31,9 +31,9 @@ namespace Logic.Mapping
         public NoteMap Convert(Note source)
         {
             Mapper.Initialize(cfg => {
-                cfg.CreateMap<User, UserMap>();
-                cfg.CreateMap<Notebook, NotebookMap>();
-                cfg.CreateMap<Note, NoteMap>();
+                cfg.CreateMap<User, UserMap>().MaxDepth(1);
+                cfg.CreateMap<Notebook, NotebookMap>().MaxDepth(1);
+                cfg.CreateMap<Note, NoteMap>().MaxDepth(1);
             });
             return Mapper.Map<NoteMap>(source);
         }
@@ -41,9 +41,9 @@ namespace Logic.Mapping
         public User Convert(UserMap source)
         {
             Mapper.Initialize(cfg => {
-                cfg.CreateMap<UserMap, User>();
-                cfg.CreateMap<NotebookMap, Notebook>();
-                cfg.CreateMap<NoteMap, Note>();
+                cfg.CreateMap<UserMap, User>().MaxDepth(1);
+                cfg.CreateMap<NotebookMap, Notebook>().MaxDepth(1);
+                cfg.CreateMap<NoteMap, Note>().MaxDepth(1);
             });
             return Mapper.Map<User>(source);
         }
@@ -51,9 +51,9 @@ namespace Logic.Mapping
         public Notebook Convert(NotebookMap source)
         {
             Mapper.Initialize(cfg => {
-                cfg.CreateMap<UserMap, User>();
-                cfg.CreateMap<NotebookMap, Notebook>();
-                cfg.CreateMap<NoteMap, Note>();
+                cfg.CreateMap<UserMap, User>().MaxDepth(1);
+                cfg.CreateMap<NotebookMap, Notebook>().MaxDepth(1);
+                cfg.CreateMap<NoteMap, Note>().MaxDepth(1);
             });
             return Mapper.Map<Notebook>(source);
         }
@@ -61,9 +61,9 @@ namespace Logic.Mapping
         public Note Convert(NoteMap source)
         {
             Mapper.Initialize(cfg => {
-                cfg.CreateMap<UserMap, User>();
-                cfg.CreateMap<NotebookMap, Notebook>();
-                cfg.CreateMap<NoteMap, Note>();
+                cfg.CreateMap<UserMap, User>().MaxDepth(1);
+                cfg.CreateMap<NotebookMap, Notebook>().MaxDepth(1);
+                cfg.CreateMap<NoteMap, Note>().MaxDepth(1);
             });
             return Mapper.Map<Note>(source);
         }
@@ -71,9 +71,9 @@ namespace Logic.Mapping
         public ICollection<UserMap> Convert(ICollection<User> source)
         {
             Mapper.Initialize(cfg => {
-                cfg.CreateMap<User, UserMap>();
-                cfg.CreateMap<Notebook, NotebookMap>();
-                cfg.CreateMap<Note, NoteMap>();
+                cfg.CreateMap<User, UserMap>().MaxDepth(1);
+                cfg.CreateMap<Notebook, NotebookMap>().MaxDepth(1);
+                cfg.CreateMap<Note, NoteMap>().MaxDepth(1);
             });
             return Mapper.Map<ICollection<UserMap>>(source);
         }
@@ -81,9 +81,9 @@ namespace Logic.Mapping
         public ICollection<NotebookMap> Convert(ICollection<Notebook> source)
         {
             Mapper.Initialize(cfg => {
-                cfg.CreateMap<User, UserMap>();
-                cfg.CreateMap<Notebook, NotebookMap>();
-                cfg.CreateMap<Note, NoteMap>();
+                cfg.CreateMap<User, UserMap>().MaxDepth(1);
+                cfg.CreateMap<Notebook, NotebookMap>().MaxDepth(1);
+                cfg.CreateMap<Note, NoteMap>().MaxDepth(1);
             });
             return Mapper.Map<ICollection<NotebookMap>>(source);
         }
@@ -91,9 +91,9 @@ namespace Logic.Mapping
         public ICollection<NoteMap> Convert(ICollection<Note> source)
         {
             Mapper.Initialize(cfg => {
-                cfg.CreateMap<User, UserMap>();
-                cfg.CreateMap<Notebook, NotebookMap>();
-                cfg.CreateMap<Note, NoteMap>();
+                cfg.CreateMap<User, UserMap>().MaxDepth(1);
+                cfg.CreateMap<Notebook, NotebookMap>().MaxDepth(1);
+                cfg.CreateMap<Note, NoteMap>().MaxDepth(1);
             });
             return Mapper.Map<ICollection<NoteMap>>(source);
         }

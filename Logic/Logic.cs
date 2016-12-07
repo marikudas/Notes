@@ -2,6 +2,7 @@
 using Logic.Mapping;
 using Logic.Model;
 using System.Collections.Generic;
+using System.Linq;
 
 
 namespace Logic
@@ -29,6 +30,16 @@ namespace Logic
         public UserMap GetUser(string userLogin)
         {
             return _convertor.Convert(_db.GetUser(userLogin));
+        }
+
+        public ICollection<NotebookMap> GetNotebooks(int userId)
+        {
+            return _convertor.Convert(_db.GetNotebooks()).Where<NotebookMap>(n => n.UserId == userId).ToList();
+        }
+
+        public void AddNotebook(NotebookMap notebook)
+        {
+            _db.AddNotebook(_convertor.Convert(notebook));
         }
     }
 }

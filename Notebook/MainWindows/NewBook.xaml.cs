@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using Logic.Model;
 using System.Windows.Controls;
+using Logic;
 
 
 namespace Presentation.MainWindows
@@ -12,12 +14,16 @@ namespace Presentation.MainWindows
     /// </summary>
     public partial class NewBook : Window
     {
-        public NewBook()
+        Logic.Logic logic = new Logic.Logic();
+        private int userId;
+
+        public NewBook(int userId)
         {
             InitializeComponent();
+            this.userId = userId;
         }
 
-        private void ValidateFields()
+        private void ValidateFields(object sender, RoutedEventArgs e)
         {
                 if (NameBox.Text == string.Empty)
                 {
@@ -29,7 +35,15 @@ namespace Presentation.MainWindows
 
         private void ok_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                logic.AddNotebook(new NotebookMap { Name = NameBox.Text, UserId = userId });
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
