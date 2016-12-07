@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Logic.Model;
+using System;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Text.RegularExpressions;
-using Logic.Model;
-using Logic;
 
 namespace Presentation.Authorization
 {
@@ -20,12 +19,12 @@ namespace Presentation.Authorization
         public RegistrationWindow()
         {
             InitializeComponent();
-            
+
         }
 
         private void ValidateFields()
         {
-            foreach(TextBox textBox in SPanel.Children.OfType<TextBox>())
+            foreach (TextBox textBox in SPanel.Children.OfType<TextBox>())
             {
                 if (textBox.BorderBrush == Brushes.Red || textBox.Text == string.Empty)
                 {
@@ -87,17 +86,20 @@ namespace Presentation.Authorization
                     Email = Emailbox.Text
                 };
                 _logic.Register(user);
-                
+
                 StartWindow startWindow = new StartWindow();
                 startWindow.Show();
                 this.Close();
             }
-            catch(Exception ex)
+            catch (DbUpdateException)
+            {
+                MessageBox.Show("User with this login already exist, try another login.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 StartWindow startWindow = new StartWindow();
                 startWindow.Show();
-                this.Close();
             }
         }
     }

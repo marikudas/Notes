@@ -1,9 +1,7 @@
-﻿using System;
-using System.Linq;
-using System.Windows;
-using Logic.Model;
-using Logic;
+﻿using Logic.Model;
 using Presentation.MainWindows;
+using System;
+using System.Windows;
 namespace Presentation.Authorization
 {
     /// <summary>
@@ -11,7 +9,7 @@ namespace Presentation.Authorization
     /// </summary>
     public partial class StartWindow : Window
     {
-        private Logic.Logic _logic = new Logic.Logic();
+        private readonly Logic.Logic _logic = new Logic.Logic();
         public StartWindow()
         {
             InitializeComponent();
@@ -21,14 +19,14 @@ namespace Presentation.Authorization
         {
             try
             {
-                UserMap user = _logic.GetUsers().FirstOrDefault(u => u.Login == LoginBox.Text);
+                UserMap user = _logic.GetUser(LoginBox.Text);
                 if (user == null)
                     throw new InvalidOperationException("Invalid login!");
                 if (user.Password != PasswordBox.Password)
                     throw new InvalidOperationException("Wrong password!");
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
-                this.Close();
+                Close();
             }
             catch (Exception ex)
             {
@@ -40,7 +38,7 @@ namespace Presentation.Authorization
         {
             RegistrationWindow registrationWindow = new RegistrationWindow();
             registrationWindow.Show();
-            this.Close();
+            Close();
         }
     }
 }

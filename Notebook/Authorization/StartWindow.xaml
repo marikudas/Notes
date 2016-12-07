@@ -23,6 +23,6 @@
         <Label x:Name="Passlabel" Content="Password" HorizontalAlignment="Right" Margin="0 0 30 40" FontFamily="Times New Roman" FontSize ="20" VerticalAlignment="Center"/>
         <Button x:Name="SingInbutton" Click="SingInbutton_Click" Content="Sign In" HorizontalAlignment="Left" Margin="25,0,0,0" Grid.Row="1" FontFamily="Times New Roman" FontSize="20" VerticalAlignment="Center" Width="100"/>
         <Button x:Name="SingOutbutton" Content="Sign Up" HorizontalAlignment="Right" Margin="0,0,20,0" Grid.Row="1" FontFamily="Times New Roman" FontSize="20" VerticalAlignment="Center" Width="100" Click="SingOutbutton_Click"/>
-        <Label x:Name="Exceptionlabel" Content="" HorizontalAlignment="Center" Margin="0,0,0,10" Grid.Row="1" FontFamily="Times New Roman" FontSize="20" Foreground="Red" VerticalAlignment="Bottom"/>
+        <Label x:Name="Exceptionlabel" Content="" HorizontalAlignment="Center" Margin="0,0,0,10" Grid.Row="1" FontFamily="Times New Roman" FontSize="14" Foreground="Red" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>

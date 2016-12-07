@@ -66,16 +66,6 @@ namespace Database
 
         }
 
-        public void RemoveUser(int userId)
-        {
-
-            User user = _db.Users.FirstOrDefault(u => u.Id == userId);
-            if (user != null)
-                _db.Users.Remove(user);
-            _db.SaveChanges();
-
-        }
-
         public void Update(User user)
         {
             _db.Users.AddOrUpdate(user);
@@ -97,22 +87,46 @@ namespace Database
         public ICollection<User> GetUsers()
         {
 
-            return _db.Users.ToList();
+            return _db.Users.Include(u => u.Notebooks.Select(n => n.Notes)).ToList();
 
         }
 
         public ICollection<Notebook> GetNotebooks()
         {
 
-            return _db.Notebooks.ToList();
+            return _db.Notebooks.Include(n => n.Notes).Include(n => n.User).ToList();
 
         }
 
         public ICollection<Note> GetNotes()
         {
 
-            return _db.Notes.ToList();
+            return _db.Notes.Include(n => n.Notebooks).Include(n => n.Notebooks.User).ToList();
 
+        }
+
+        //By id
+        public User GetUser(int userId)
+        {
+            return _db.Users.Include(u => u.Notebooks.Select(n => n.Notes)).FirstOrDefault(u => u.Id == userId);
+        }
+
+        //By Login
+        public User GetUser(string userLogin)
+        {
+            return _db.Users.Include(u => u.Notebooks.Select(n => n.Notes)).FirstOrDefault(u => u.Login == userLogin);
+        }
+
+        public Notebook GetNotebook(int notebookId)
+        {
+            return _db.Notebooks.Include(n => n.User).Include(n => n.Notes).FirstOrDefault(n => n.Id == notebookId);
+        }
+
+        public Note GetNote(int noteId)
+        {
+            return _db.Notes.Include(n => n.Notebooks)
+                .Include(n => n.Notebooks.User)
+                .FirstOrDefault(n => n.Id == noteId);
         }
     }
 }
