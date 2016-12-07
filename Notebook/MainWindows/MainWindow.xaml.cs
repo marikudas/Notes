@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
+using System.ComponentModel;
 
 namespace Presentation.MainWindows
 {
@@ -22,6 +23,17 @@ namespace Presentation.MainWindows
         {
             NewBook newbook = new NewBook();
             newbook.Show();
+        }
+
+        //private void MainWindow_Closing(object sender, CancelEventArgs e)
+        //{
+        //    e.Cancel = true;
+        //}
+
+        private void NewNoteButton_Click(object sender, RoutedEventArgs e)
+        {
+            NewNote newnote = new NewNote();
+            newnote.Show();
         }
     }
 }

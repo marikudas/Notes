@@ -61,7 +61,7 @@
             <Label Grid.Column="2" VerticalAlignment="Top" Content="Displaing notes from" MinWidth="100" Margin="0 50 0 0"></Label>
             <ComboBox x:Name="comboBox" Grid.Column="2" Margin="0 80 10 0" HorizontalAlignment="Right" BorderBrush="Purple" Background ="Transparent"  VerticalAlignment="Top" Width="120">
             </ComboBox>
-            <Button Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150" Height="25" Margin="10 110 0 0 " Content="Add new note"></Button>
+            <Button Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150" Height="25" Margin="10 110 0 0 " Content="Add new note" Click="NewNoteButton_Click"></Button>
             <RichTextBox x:Name="richTextBox" Grid.Column="4" Background="Transparent" BorderBrush="Purple" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="1" Height="300" MaxHeight="500">
                 <FlowDocument>
                     <Paragraph>
@@ -73,7 +73,34 @@
             <Label Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,50,0,0" >Date created :</Label>
             <Label Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,50,40,0" Name="DateCreated">Date</Label>
             <TextBox  Grid.Column="4" Padding="3" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0 30 0 0" FontFamily="Times New Roman" MinWidth="50" Background="Transparent" Foreground="White" BorderThickness="2" BorderBrush="Purple"></TextBox>
-            <ToolBar Grid.Column="4" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 80 0 0" Width="243" ></ToolBar>
+            <ToolBar Grid.Column="4" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 80 0 0" Width="243" >
+                <ComboBox SelectedIndex="1">
+
+                </ComboBox>
+                <Separator></Separator>
+                <Button>
+                    <Image Source="D:\TFS\Coursework (Notes)\Notes\Notes\Notebook\Images\bold.png" MaxHeight="15"></Image>
+                </Button>
+                <Button>
+                    <Image Source="D:\TFS\Coursework (Notes)\Notes\Notes\Notebook\Images\italic.png" MaxHeight="15"></Image>
+                </Button>
+                <Button>
+                    <Image Source="D:\TFS\Coursework (Notes)\Notes\Notes\Notebook\Images\underline-text.png" MaxHeight="13"></Image>
+                </Button>
+                <Button>
+                    <Image Source="D:\TFS\Coursework (Notes)\Notes\Notes\Notebook\Images\a.png" MaxHeight="16"></Image>
+                </Button>
+                <Separator></Separator>
+                <Button>
+                    <Image Source="D:\TFS\Coursework (Notes)\Notes\Notes\Notebook\Images\список.png" MaxHeight="17"></Image>
+                </Button>
+                <Button>
+                    <Image Source="D:\TFS\Coursework (Notes)\Notes\Notes\Notebook\Images\список2.png" MaxHeight="17"></Image>
+                </Button>
+                <Button>
+                    <Image Source="D:\TFS\Coursework (Notes)\Notes\Notes\Notebook\Images\список3.jpg" MaxHeight="17"></Image>
+                </Button>
+            </ToolBar>
         </Grid>
     </DockPanel>
 </Window>
