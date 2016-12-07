@@ -24,8 +24,8 @@
         </Panel.Background>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="File">
-                <MenuItem Header="Add new book" ></MenuItem>
-                <MenuItem Header="Add new note"></MenuItem>
+                <MenuItem Header="Add new book" Click="NewBookButton_Click" ></MenuItem>
+                <MenuItem Header="Add new note" Click="NewNoteButton_Click"></MenuItem>
                 <Separator/>
                 <MenuItem Header="Log out" Click="LogOut"></MenuItem>
                 <MenuItem Header="Exit" Click = "Exit"></MenuItem>
