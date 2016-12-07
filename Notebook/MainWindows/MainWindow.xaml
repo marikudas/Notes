@@ -79,26 +79,26 @@
                 </ComboBox>
                 <Separator></Separator>
                 <Button>
-                    <Image Source="D:\TFS\Coursework (Notes)\Notes\Notes\Notebook\Images\bold.png" MaxHeight="15"></Image>
+                    <Image Source="..\Images\bold.png" MaxHeight="15"></Image>
                 </Button>
                 <Button>
-                    <Image Source="D:\TFS\Coursework (Notes)\Notes\Notes\Notebook\Images\italic.png" MaxHeight="15"></Image>
+                    <Image Source="..\Images\italic.png" MaxHeight="15"></Image>
                 </Button>
                 <Button>
-                    <Image Source="D:\TFS\Coursework (Notes)\Notes\Notes\Notebook\Images\underline-text.png" MaxHeight="13"></Image>
+                    <Image Source="..\Images\underline-text.png" MaxHeight="13"></Image>
                 </Button>
                 <Button>
-                    <Image Source="D:\TFS\Coursework (Notes)\Notes\Notes\Notebook\Images\a.png" MaxHeight="16"></Image>
+                    <Image Source="..\Images\a.png" MaxHeight="16"></Image>
                 </Button>
                 <Separator></Separator>
                 <Button>
-                    <Image Source="D:\TFS\Coursework (Notes)\Notes\Notes\Notebook\Images\список.png" MaxHeight="17"></Image>
+                    <Image Source="..\Images\список.png" MaxHeight="17"></Image>
                 </Button>
                 <Button>
-                    <Image Source="D:\TFS\Coursework (Notes)\Notes\Notes\Notebook\Images\список2.png" MaxHeight="17"></Image>
+                    <Image Source="..\Images\список2.png" MaxHeight="17"></Image>
                 </Button>
                 <Button>
-                    <Image Source="D:\TFS\Coursework (Notes)\Notes\Notes\Notebook\Images\список3.jpg" MaxHeight="17"></Image>
+                    <Image Source="..\Images\список3.jpg" MaxHeight="17"></Image>
                 </Button>
             </ToolBar>
         </Grid>
