@@ -5,6 +5,8 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System;
 using Presentation.Authorization;
+using System.Windows.Documents;
+using System.Linq;
 
 namespace Presentation.MainWindows
 {
@@ -16,14 +18,12 @@ namespace Presentation.MainWindows
         
         private Logic.Logic logic = new Logic.Logic();
         private UserMap user;
-        private ObservableCollection<NotebookMap> Notebooks;
 
         public MainWindow(UserMap user)
         {
             InitializeComponent();
             this.user = user;
             RefreshNotebooks();
-            NotebooksList.ItemsSource = Notebooks;
         }
 
         private void NewBookButton_Click(object sender, RoutedEventArgs e)
@@ -35,13 +35,19 @@ namespace Presentation.MainWindows
 
         private void NewNoteButton_Click(object sender, RoutedEventArgs e)
         {
-            NewNote newnote = new NewNote();
+            NewNote newnote = new NewNote((NotebookMap)NotebooksList.SelectedItem);
             newnote.Show();
         }
 
         private void RefreshNotebooks()
         {
-            Notebooks = new ObservableCollection<NotebookMap>(logic.GetNotebooks(user.Id));
+            NotebooksList.ItemsSource = new ObservableCollection<NotebookMap>(logic.GetNotebooks(user.Id));
+            comboBox_notebook.ItemsSource = new ObservableCollection<NotebookMap>(logic.GetNotebooks(user.Id));
+        }
+
+        private void RefreshNote()
+        {
+            NoteList.ItemsSource = new ObservableCollection<NoteMap>(logic.GetNotes(((NotebookMap)NotebooksList?.SelectedItem).Id));
         }
 
         protected override void OnClosed(EventArgs e)
@@ -60,6 +66,46 @@ namespace Presentation.MainWindows
             StartWindow sw = new StartWindow();
             sw.Show();
             this.Hide();
+        }
+
+        private void NotebooksList_Selected(object sender, RoutedEventArgs e)
+        {
+            RefreshNote();
+        }
+
+        private void NoteList_Selected(object sender, RoutedEventArgs e)
+        {
+            NoteMap note = (NoteMap)NoteList.SelectedItem;
+            if (note == null)
+            {
+                richTextBox.Document.Blocks.Clear();
+                TitleTextbox.Text = "";
+                DateLabel.Content = "";
+                return;
+            }
+            richTextBox.Document.Blocks.Clear();
+            richTextBox.Document.Blocks.Add(new Paragraph(new Run(note.Text)));       
+            DateLabel.Content = note.DateCreated.ToShortDateString();
+            TitleTextbox.Text = note.Title;
+        }
+
+        private void SearchTextbox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            if(SearchTextbox.Text == string.Empty)
+            {
+                RefreshNote();
+                return;
+            }
+
+            NoteList.ItemsSource = logic.GetNotes(((NotebookMap)NotebooksList.SelectedItem).Id).Where<NoteMap>(n => n.Title.IndexOf(SearchTextbox.Text,StringComparison.OrdinalIgnoreCase)>=0);
+            
+        }
+
+        private void comboBox_notebook_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (comboBox_notebook.SelectedItem == null)
+                return;
+            NotebooksList.SelectedItem = comboBox_notebook.SelectedItem;
         }
     }
 }

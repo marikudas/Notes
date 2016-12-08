@@ -51,7 +51,7 @@
             <GridSplitter Grid.Column="3"  ShowsPreview="False" Width="3"
         HorizontalAlignment="Stretch" Background="Black" />
             <Label Grid.Column="0" Content="Your Books" HorizontalAlignment="Center" VerticalAlignment="Top"></Label>
-            <ListBox Name="NotebooksList"  Background="Transparent" Foreground="White" Grid.Column="0" Margin="2 30 2 2" BorderBrush="Purple" >
+            <ListBox Name="NotebooksList" SelectionChanged="NotebooksList_Selected"  Background="Transparent" Foreground="White" Grid.Column="0" Margin="2 30 2 2" BorderBrush="Purple" >
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
@@ -62,13 +62,28 @@
             </ListBox>
             <Button Name="NewBookButton" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="150" Height="30" Margin="10" Content="Add new book" Click="NewBookButton_Click"></Button>
             <Label  Grid.Column="2" VerticalAlignment="Top"  Content="Search" HorizontalContentAlignment="Center"></Label>
-            <TextBox  Grid.Column="2" Padding="3" VerticalAlignment="Top" Margin="0 30 0 0" FontFamily="Times New Roman" MinWidth="50" MaxWidth="200" Background="Transparent" Foreground="White" BorderThickness="2" BorderBrush="Purple"></TextBox>
-            <ListBox   Grid.Column="2" VerticalAlignment="Bottom" Margin="2" Height="300" Background="Transparent" Foreground="White" BorderBrush="Purple"></ListBox>
+            <TextBox Name="SearchTextbox" TextChanged="SearchTextbox_TextChanged" Grid.Column="2" Padding="3" VerticalAlignment="Top" Margin="0 30 0 0" FontFamily="Times New Roman" MinWidth="50" MaxWidth="200" Background="Transparent" FontSize="14" Foreground="White" BorderThickness="2" BorderBrush="Purple"></TextBox>
+            <ListBox  Name="NoteList" Grid.Column="2" SelectionChanged="NoteList_Selected" VerticalAlignment="Bottom" Margin="2" Height="300" Background="Transparent" Foreground="White" BorderBrush="Purple">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>  
+                    <StackPanel>
+                        <TextBlock Text="{Binding Path=Title}" FontFamily="Times New Roman" Foreground="White" FontWeight="Bold" FontSize="16"></TextBlock>
+                    </StackPanel>
+                    </DataTemplate>
+           </ListBox.ItemTemplate>
+            </ListBox>
             <Label Grid.Column="2" VerticalAlignment="Top" Content="Displaing notes from" MinWidth="100" Margin="0 50 0 0"></Label>
-            <ComboBox x:Name="comboBox" Grid.Column="2" Margin="0 80 10 0" HorizontalAlignment="Right" BorderBrush="Purple" Background ="Transparent"  VerticalAlignment="Top" Width="120">
+            <ComboBox x:Name="comboBox_notebook" SelectionChanged="comboBox_notebook_SelectionChanged" Text="{Binding Path = Name}" Grid.Column="2" Margin="0 80 10 0" HorizontalAlignment="Right" BorderBrush="Purple" Background ="Transparent"  VerticalAlignment="Top" Width="120">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Path = Name}" FontFamily="Times New Roman" Foreground="Purple"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
             </ComboBox>
-            <Button Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150" Height="25" Margin="10 110 0 0 " Content="Add new note" Click="NewNoteButton_Click"></Button>
-            <RichTextBox x:Name="richTextBox" Grid.Column="4" Background="Transparent" BorderBrush="Purple" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="2" MinHeight="340">
+            <Button Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Center" Width="150" Height="25" Margin="0 110 0 0 " Content="Add new note" Click="NewNoteButton_Click"></Button>
+            <RichTextBox x:Name="richTextBox" Grid.Column="4" FontFamily="Times New Roman" FontSize="12" Foreground="White" Background="Transparent" BorderBrush="Purple" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="2" MinHeight="340">
                 <FlowDocument>
                     <Paragraph>
                         <Run Text=""/>
@@ -77,8 +92,8 @@
             </RichTextBox>
             <Label Grid.Column="4" Content="Title" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10,2,0,0"></Label>
             <Label Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,50,0,0" >Date created :</Label>
-            <Label Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,50,40,0" Name="DateCreated">test</Label>
-            <TextBox  Grid.Column="4" Padding="3" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0 30 0 0" FontFamily="Times New Roman" MinWidth="50" Background="Transparent" Foreground="White" BorderThickness="2" BorderBrush="Purple"></TextBox>
+            <Label Name="DateLabel" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Top"  Margin="0,50,10,0"></Label>
+            <TextBox Name="TitleTextbox" Grid.Column="4" Padding="3" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0 30 0 0" FontFamily="Times New Roman" FontSize="14" MinWidth="50" Background="Transparent" Foreground="White" BorderThickness="2" BorderBrush="Purple"></TextBox>
             <ToolBar Grid.Column="4" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 80 0 0" Width="243" >
                 <ComboBox SelectedIndex="1">
 

@@ -22,14 +22,17 @@
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
-            <Label Grid.Row="0" >Name your note :</Label>
-            <TextBox Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Right" MaxHeight="20" MinWidth="300" Margin="0 10 20 0" Background="Transparent" BorderBrush="Purple" BorderThickness="2"></TextBox>
+            <Label Grid.Row="0" >Title :</Label>
+            <TextBox Grid.Row="0" Name="TitleText" Foreground="White" FontFamily="Times New Roman" FontSize="12" VerticalAlignment="Top" HorizontalAlignment="Center" MinWidth="300" Margin="0 10 20 0" Background="Transparent" BorderBrush="Purple" BorderThickness="2"></TextBox>
             <ToolBar Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="0 35 0 0">
-                <ComboBox SelectedIndex="1">
+                <ComboBox Name="Fontfamily_combobox" SelectedIndex="1"  >
+                    
+                </ComboBox>
+                <ComboBox Name="Fontsize_combobox" SelectedIndex="1">
                     
                 </ComboBox>
                 <Separator></Separator>
-                <Button>
+                <Button Name="boldbutton"  >
                     <Image Source="..\Images\bold.png" MaxHeight="15"></Image>
                 </Button>
                 <Button>
@@ -52,7 +55,8 @@
                     <Image Source="..\Images\список3.jpg" MaxHeight="17"></Image>
                 </Button>
             </ToolBar>
-            <RichTextBox Grid.Row="1" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="Purple" BorderThickness="2" MinHeight="220"></RichTextBox>
+            <Button Name="SaveButton" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right" MinWidth="30" Width="60" Height="20" Content="Save" FontFamily="Times New Roman" FontSize="14" Foreground="White" Background="Transparent" BorderBrush="Purple" BorderThickness="2" Margin="0 0 10 25" Click="SaveButton_Click"></Button>
+            <RichTextBox Name="TextNote" Grid.Row="1" Background="Transparent" FontFamily="Times New Roman" FontSize="12" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="Purple" BorderThickness="2" MinHeight="220" ></RichTextBox>
     </Grid>
    </DockPanel>
 </Window>

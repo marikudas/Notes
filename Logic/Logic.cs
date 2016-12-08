@@ -41,5 +41,20 @@ namespace Logic
         {
             _db.AddNotebook(_convertor.Convert(notebook));
         }
+
+        public void AddNote(NoteMap note)
+        {
+            _db.AddNote(_convertor.Convert(note));
+        }
+
+        public NoteMap GetNote(int noteId)
+        {
+            return _convertor.Convert(_db.GetNote(noteId));
+        }
+
+        public ICollection<NoteMap> GetNotes(int notebookId)
+        {
+            return _convertor.Convert(_db.GetNotes()).Where<NoteMap>(n => n.NotebookId == notebookId).ToList();
+        }
     }
 }
