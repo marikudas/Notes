@@ -8,125 +8,180 @@ namespace Database
 {
     public class DataAccess
     {
-        private readonly Entities _db = new Entities();
-
-        ~DataAccess()
-        {
-            _db.Dispose();
-        }
 
         public void AddUser(User user)
         {
-            _db.Users.Add(user);
-            _db.SaveChanges();
+            using (Entities db = new Entities())
+            {
+                db.Users.Add(user);
+                db.SaveChanges();
+            }
+
         }
 
         public void AddNotebook(Notebook notebook)
         {
-            _db.Notebooks.Add(notebook);
-            _db.SaveChanges();
+            using (Entities db = new Entities())
+            {
+                db.Notebooks.Add(notebook);
+                db.SaveChanges();
+            }
+
 
         }
 
         public void AddNote(Note note)
         {
+            using (Entities db = new Entities())
+            {
+                db.Notes.Add(note);
+                db.SaveChanges();
+            }
 
-            _db.Notes.Add(note);
-            _db.SaveChanges();
 
         }
 
         public void RemoveUser(User user)
         {
-            _db.Users.Remove(_db.Users
-                .Include(u => u.Notebooks.Select(n => n.Notes))
-                .FirstOrDefault(u => u.Id == user.Id));
-            _db.SaveChanges();
+            using (Entities db = new Entities())
+            {
+                db.Users.Remove(db.Users
+                    .Include(u => u.Notebooks.Select(n => n.Notes))
+                    .FirstOrDefault(u => u.Id == user.Id));
+                db.SaveChanges();
+            }
+
 
         }
 
         public void RemoveNotebook(Notebook notebook)
         {
+            using (Entities db = new Entities())
+            {
+                db.Notebooks.Remove(db.Notebooks
+                    .Include(n => n.Notes)
+                    .Include(n => n.User)
+                    .FirstOrDefault(n => n.Id == notebook.Id));
+                db.SaveChanges();
+            }
 
-            _db.Notebooks.Remove(_db.Notebooks
-                .Include(n => n.Notes)
-                .Include(n => n.User)
-                .FirstOrDefault(n => n.Id == notebook.Id));
-            _db.SaveChanges();
 
         }
 
         public void RemoveNote(Note note)
         {
-            _db.Notes.Remove(_db.Notes
-                .Include(n => n.Notebooks)
-                .Include(n => n.Notebooks.User)
-                .FirstOrDefault(n => n.Id == note.Id));
-            _db.SaveChanges();
+            using (Entities db = new Entities())
+            {
+                db.Notes.Remove(db.Notes
+                    .Include(n => n.Notebooks)
+                    .Include(n => n.Notebooks.User)
+                    .FirstOrDefault(n => n.Id == note.Id));
+                db.SaveChanges();
+            }
+
 
         }
 
         public void Update(User user)
         {
-            _db.Users.AddOrUpdate(user);
-            _db.SaveChanges();
+            using (Entities db = new Entities())
+            {
+                db.Users.AddOrUpdate(user);
+                db.SaveChanges();
+            }
+
         }
 
         public void Update(Note note)
         {
-            _db.Notes.AddOrUpdate(note);
-            _db.SaveChanges();
+            using (Entities db = new Entities())
+            {
+                db.Notes.AddOrUpdate(note);
+                db.SaveChanges();
+            }
+
         }
 
         public void Update(Notebook notebook)
         {
-            _db.Notebooks.AddOrUpdate(notebook);
-            _db.SaveChanges();
+            using (Entities db = new Entities())
+            {
+                db.Notebooks.AddOrUpdate(notebook);
+                db.SaveChanges();
+            }
+
         }
 
         public ICollection<User> GetUsers()
         {
+            using (Entities db = new Entities())
+            {
+                return db.Users.Include(u => u.Notebooks.Select(n => n.Notes)).ToList();
 
-            return _db.Users.Include(u => u.Notebooks.Select(n => n.Notes)).ToList();
+            }
+
 
         }
 
         public ICollection<Notebook> GetNotebooks()
         {
+            using (Entities db = new Entities())
+            {
+                return db.Notebooks.Include(n => n.Notes).Include(n => n.User).ToList();
+            }
 
-            return _db.Notebooks.Include(n => n.Notes).Include(n => n.User).ToList();
 
         }
 
         public ICollection<Note> GetNotes()
         {
+            using (Entities db = new Entities())
+            {
+                return db.Notes.Include(n => n.Notebooks).Include(n => n.Notebooks.User).ToList();
 
-            return _db.Notes.Include(n => n.Notebooks).Include(n => n.Notebooks.User).ToList();
+            }
+
 
         }
 
         //By id
         public User GetUser(int userId)
         {
-            return _db.Users.Include(u => u.Notebooks.Select(n => n.Notes)).FirstOrDefault(u => u.Id == userId);
+            using (Entities db = new Entities())
+            {
+                return db.Users.Include(u => u.Notebooks.Select(n => n.Notes)).FirstOrDefault(u => u.Id == userId);
+
+            }
         }
 
         //By Login
         public User GetUser(string userLogin)
         {
-            return _db.Users.Include(u => u.Notebooks.Select(n => n.Notes)).FirstOrDefault(u => u.Login == userLogin);
+            using (Entities db = new Entities())
+            {
+                return db.Users.Include(u => u.Notebooks.Select(n => n.Notes)).FirstOrDefault(u => u.Login == userLogin);
+
+            }
         }
 
         public Notebook GetNotebook(int notebookId)
         {
-            return _db.Notebooks.Include(n => n.User).Include(n => n.Notes).FirstOrDefault(n => n.Id == notebookId);
+            using (Entities db = new Entities())
+            {
+                return db.Notebooks.Include(n => n.User).Include(n => n.Notes).FirstOrDefault(n => n.Id == notebookId);
+
+            }
         }
 
         public Note GetNote(int noteId)
         {
-            return _db.Notes.Include(n => n.Notebooks)
-                .Include(n => n.Notebooks.User)
-                .FirstOrDefault(n => n.Id == noteId);
+            using (Entities db = new Entities())
+            {
+                return db.Notes.Include(n => n.Notebooks)
+    .Include(n => n.Notebooks.User)
+    .FirstOrDefault(n => n.Id == noteId);
+            }
+
         }
     }
 }
