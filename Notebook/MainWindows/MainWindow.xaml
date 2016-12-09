@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        Title="MainWindow" Height="500" Width="700">
+        Title="MainWindow" MinHeight="450" Width="700">
     <Window.Resources>
         <Style TargetType="Label">
             <Setter Property="FontFamily" Value ="Times New Roman" ></Setter>
@@ -61,28 +61,30 @@
                 </ListBox.ItemTemplate>
             </ListBox>
             <Button Name="NewBookButton" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="150" Height="30" Margin="10" Content="Add new book" Click="NewBookButton_Click"></Button>
-            <Label  Grid.Column="2" VerticalAlignment="Top"  Content="Search" HorizontalContentAlignment="Center"></Label>
-            <TextBox Name="SearchTextbox" TextChanged="SearchTextbox_TextChanged" Grid.Column="2" Padding="3" VerticalAlignment="Top" Margin="0 30 0 0" FontFamily="Times New Roman" MinWidth="50" MaxWidth="200" Background="Transparent" FontSize="14" Foreground="White" BorderThickness="2" BorderBrush="Purple"></TextBox>
-            <ListBox  Name="NoteList" Grid.Column="2" SelectionChanged="NoteList_Selected" VerticalAlignment="Bottom" Margin="2" Height="300" Background="Transparent" Foreground="White" BorderBrush="Purple">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>  
-                    <StackPanel>
-                        <TextBlock Text="{Binding Path=Title}" FontFamily="Times New Roman" Foreground="White" FontWeight="Bold" FontSize="16"></TextBlock>
-                    </StackPanel>
-                    </DataTemplate>
-           </ListBox.ItemTemplate>
-            </ListBox>
-            <Label Grid.Column="2" VerticalAlignment="Top" Content="Displaing notes from" MinWidth="100" Margin="0 50 0 0"></Label>
-            <ComboBox x:Name="comboBox_notebook" SelectionChanged="comboBox_notebook_SelectionChanged" Text="{Binding Path = Name}" Grid.Column="2" Margin="0 80 10 0" HorizontalAlignment="Right" BorderBrush="Purple" Background ="Transparent"  VerticalAlignment="Top" Width="120">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <TextBlock Text="{Binding Path = Name}" FontFamily="Times New Roman" Foreground="Purple"></TextBlock>
-                        </StackPanel>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
-            <Button Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Center" Width="150" Height="25" Margin="0 110 0 0 " Content="Add new note" Click="NewNoteButton_Click"></Button>
+            <StackPanel Grid.Column="2">
+                <Label  Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Center"  Content="Search"  HorizontalContentAlignment="Center"></Label>
+                <TextBox Name="SearchTextbox" TextChanged="SearchTextbox_TextChanged" Grid.Column="2" Padding="3" VerticalAlignment="Top" FontFamily="Times New Roman" Margin="20 0 20 0" Background="Transparent" FontSize="14" Foreground="White" BorderThickness="2" BorderBrush="Purple"></TextBox>
+                <Label Grid.Column="2" VerticalAlignment="Top" Content="Displaing notes from" HorizontalContentAlignment="Center"></Label>
+                <ComboBox x:Name="comboBox_notebook" SelectionChanged="comboBox_notebook_SelectionChanged" Text="{Binding Path = Name}" Grid.Column="2" HorizontalAlignment="Center" BorderBrush="Purple" Background ="Transparent"  VerticalAlignment="Top" MinWidth="150">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Path = Name}" FontFamily="Times New Roman" Foreground="Purple"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <Button Grid.Column="2" VerticalAlignment="Top" MinWidth="130" HorizontalAlignment="Stretch" Height="25" Margin="30 10 30 0" Content="Add new note" Click="NewNoteButton_Click"></Button>
+                <ListBox  Name="NoteList" Grid.Column="2" SelectionChanged="NoteList_Selected" Margin="2 10 2 2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="Transparent" Foreground="White" BorderBrush="Purple">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Path=Title}" FontFamily="Times New Roman" Foreground="White" FontWeight="Bold" FontSize="16"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
             <RichTextBox x:Name="richTextBox" Grid.Column="4" FontFamily="Times New Roman" FontSize="12" Foreground="White" Background="Transparent" BorderBrush="Purple" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="2" MinHeight="340">
                 <FlowDocument>
                     <Paragraph>
@@ -99,13 +101,13 @@
 
                 </ComboBox>
                 <Separator></Separator>
-                <Button>
+                <Button Command="ToggleBold">
                     <Image Source="..\Images\bold.png" MaxHeight="15"></Image>
                 </Button>
-                <Button>
+                <Button Command="ToggleItalic">
                     <Image Source="..\Images\italic.png" MaxHeight="15"></Image>
                 </Button>
-                <Button>
+                <Button Command="ToggleUnderline">
                     <Image Source="..\Images\underline-text.png" MaxHeight="13"></Image>
                 </Button>
                 <Button>

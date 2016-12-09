@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Windows;
-using Logic.Model;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System;
+﻿using Logic.Model;
 using Presentation.Authorization;
-using System.Windows.Documents;
+using System;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
+using System.Windows.Documents;
 
 namespace Presentation.MainWindows
 {
@@ -15,7 +13,7 @@ namespace Presentation.MainWindows
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+
         private Logic.Logic logic = new Logic.Logic();
         private UserMap user;
 
@@ -29,14 +27,15 @@ namespace Presentation.MainWindows
         private void NewBookButton_Click(object sender, RoutedEventArgs e)
         {
             NewBook newbook = new NewBook(user.Id);
-            newbook.Show();
-            RefreshNotebooks();
+            if(newbook.ShowDialog() == false)
+                RefreshNotebooks();
         }
 
         private void NewNoteButton_Click(object sender, RoutedEventArgs e)
         {
             NewNote newnote = new NewNote((NotebookMap)NotebooksList.SelectedItem);
-            newnote.Show();
+            if(newnote.ShowDialog() == false)
+                RefreshNote();
         }
 
         private void RefreshNotebooks()
@@ -47,6 +46,8 @@ namespace Presentation.MainWindows
 
         private void RefreshNote()
         {
+            if ((NotebookMap) NotebooksList.SelectedItem == null)
+                return;
             NoteList.ItemsSource = new ObservableCollection<NoteMap>(logic.GetNotes(((NotebookMap)NotebooksList?.SelectedItem).Id));
         }
 
@@ -71,6 +72,7 @@ namespace Presentation.MainWindows
         private void NotebooksList_Selected(object sender, RoutedEventArgs e)
         {
             RefreshNote();
+            comboBox_notebook.SelectedIndex = NotebooksList.SelectedIndex;
         }
 
         private void NoteList_Selected(object sender, RoutedEventArgs e)
@@ -84,28 +86,29 @@ namespace Presentation.MainWindows
                 return;
             }
             richTextBox.Document.Blocks.Clear();
-            richTextBox.Document.Blocks.Add(new Paragraph(new Run(note.Text)));       
+            richTextBox.Document.Blocks.Add(new Paragraph(new Run(note.Text)));
             DateLabel.Content = note.DateCreated.ToShortDateString();
             TitleTextbox.Text = note.Title;
         }
 
         private void SearchTextbox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
-            if(SearchTextbox.Text == string.Empty)
+            if (SearchTextbox.Text == string.Empty)
             {
                 RefreshNote();
                 return;
             }
-
-            NoteList.ItemsSource = logic.GetNotes(((NotebookMap)NotebooksList.SelectedItem).Id).Where<NoteMap>(n => n.Title.IndexOf(SearchTextbox.Text,StringComparison.OrdinalIgnoreCase)>=0);
             
+            NoteList.ItemsSource = logic.GetNotes(((NotebookMap)NotebooksList.SelectedItem).Id).Where<NoteMap>(n => n.Title.IndexOf(SearchTextbox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+
         }
 
         private void comboBox_notebook_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             if (comboBox_notebook.SelectedItem == null)
                 return;
-            NotebooksList.SelectedItem = comboBox_notebook.SelectedItem;
+            NotebooksList.SelectedItem = NotebooksList.Items[comboBox_notebook.SelectedIndex];
+
         }
     }
 }

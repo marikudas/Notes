@@ -32,13 +32,13 @@
                     
                 </ComboBox>
                 <Separator></Separator>
-                <Button Name="boldbutton"  >
+                <Button Command="ToggleBold" Name="boldbutton"  >
                     <Image Source="..\Images\bold.png" MaxHeight="15"></Image>
                 </Button>
-                <Button>
+                <Button Command="ToggleItalic">
                     <Image Source="..\Images\italic.png" MaxHeight="15"></Image>
                 </Button>
-                <Button>
+                <Button Command="ToggleUnderline">
                     <Image Source="..\Images\underline-text.png" MaxHeight="13"></Image>
                 </Button>
                 <Button>
