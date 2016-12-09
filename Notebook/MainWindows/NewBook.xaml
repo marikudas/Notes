@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Presentation.MainWindows"
         mc:Ignorable="d"
-        Title="NewBook" Height="100" Width="300"
+        Title="NewBook" Height="130" Width="300"
         Background="SkyBlue">
     <Window.Resources>
         <Style TargetType="Button">
@@ -18,11 +18,11 @@
     <Grid Name="Grid">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="Purple" FontFamily="Times New Roman" FontSize="14">Name your book : </Label>
-        <TextBox Name="NameBox" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" BorderBrush="Purple" LostFocus="ValidateFields" BorderThickness="2"></TextBox>
-        <Button Name="ok" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="80 2 0 2" Click="ok_Click" IsEnabled="False" >Ok</Button>
-        <Button Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 2 90 2" Click="Button_Click">Cancel</Button>
+        <Label Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Purple" FontFamily="Times New Roman" FontSize="14">Name your book : </Label>
+        <TextBox Name="NameBox" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" BorderBrush="Purple" LostFocus="ValidateFields" BorderThickness="2"></TextBox>
+        <Button Name="ok" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="80 20 0 0" Click="ok_Click" IsEnabled="False" >Ok</Button>
+        <Button Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 20 90 0" Click="Button_Click">Cancel</Button>
     </Grid>
 </Window>
