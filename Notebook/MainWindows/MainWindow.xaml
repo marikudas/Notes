@@ -11,17 +11,14 @@
             <Setter Property="FontSize" Value="20"></Setter>
         </Style>
         <Style TargetType="Button">
-            <Setter Property="FontFamily" Value="Times New Roman"></Setter>
+            <Setter Property="FontFamily" Value="Broadway"></Setter>
             <Setter Property="FontSize" Value="18"></Setter>
-            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="Foreground" Value="Black"></Setter>
             <Setter Property="Background" Value="Transparent"></Setter>
             <Setter Property="BorderBrush" Value="Purple"></Setter>
         </Style>
     </Window.Resources>
     <DockPanel>
-        <Panel.Background>
-            <ImageBrush ImageSource="../Images/Backgroud.jpg" />
-        </Panel.Background>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="File">
                 <MenuItem Header="Add new book" Click="NewBookButton_Click" ></MenuItem>

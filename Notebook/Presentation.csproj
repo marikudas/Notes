@@ -102,6 +102,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MainWindows\ThemeDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainWindows\NewBook.xaml.cs">
@@ -109,6 +113,9 @@
     </Compile>
     <Compile Include="MainWindows\NewNote.xaml.cs">
       <DependentUpon>NewNote.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindows\ThemeDialog.xaml.cs">
+      <DependentUpon>ThemeDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

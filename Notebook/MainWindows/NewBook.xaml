@@ -22,7 +22,7 @@
         </Grid.RowDefinitions>
         <Label Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Purple" FontFamily="Times New Roman" FontSize="14">Name your book : </Label>
         <TextBox Name="NameBox" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" BorderBrush="Purple" LostFocus="ValidateFields" BorderThickness="2"></TextBox>
-        <Button Name="ok" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="80 20 0 0" Click="ok_Click" IsEnabled="False" >Ok</Button>
+        <Button Name="ok" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="80 20 0 0" Click="ok_Click" IsEnabled="True" >Ok</Button>
         <Button Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 20 90 0" Click="Button_Click">Cancel</Button>
     </Grid>
 </Window>
